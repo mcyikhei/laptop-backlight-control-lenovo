@@ -1,0 +1,11 @@
+﻿<Application x:Class="LenovoLaptopBacklight.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:LenovoLaptopBacklight.Converters">
+    <Application.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+        <converters:InverseBoolToVisibilityConverter x:Key="BoolToVisInverse"/>
+        <converters:InverseBoolConverter x:Key="BoolInvert"/>
+        <converters:EqualityToVisibilityConverter x:Key="EqToVis"/>
+    </Application.Resources>
+</Application>

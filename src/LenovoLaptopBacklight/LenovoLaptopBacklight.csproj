@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>appicon.ico</ApplicationIcon>
+    <!-- Bundle WPF/native libs into the single-file exe so it runs standalone (no loose *_cor3.dll) -->
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <AssemblyName>LaptopBacklightControl</AssemblyName>
+    <RootNamespace>LenovoLaptopBacklight</RootNamespace>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Company>mcyikhei</Company>
+    <Product>Laptop Backlight Control for Lenovo</Product>
+    <Description>Keyboard backlight controller for Lenovo laptops via EC register</Description>
+    <Copyright>Copyright (c) 2026 mcyikhei</Copyright>
+  </PropertyGroup>
+
+  <!-- System.Text.Json ships with .NET 8; no extra packages needed -->
+
+
+  <!-- App icon embedded as a WPF resource for the window/taskbar icon -->
+  <ItemGroup>
+    <Resource Include="appicon.ico" />
+  </ItemGroup>
+
+  <!-- Bundle WinRing0 native driver file next to the exe (and into publish output) -->
+  <ItemGroup>
+    <Content Include="native\WinRing0x64.sys">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
